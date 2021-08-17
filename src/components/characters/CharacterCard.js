@@ -1,9 +1,18 @@
-import React from 'react'
 
-function characterCard() {
+function characterCard({ characters }) {
+  const createCard = () => characters.result.map(character => {
+    return (
+      <li key={ character.id }>
+
+      </li>
+    )
+  })
+
   return(
-    <li></li>
+    <div>
+  
+    </div>
   )
 }
 
-export default characterCard 
+export default characterCard; 
