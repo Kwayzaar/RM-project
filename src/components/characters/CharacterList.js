@@ -10,25 +10,19 @@ function CharacterList() {
     const characterURL = "https://rickandmortyapi.com/api/character"
 
     fetch(characterURL)
-    .then(res => res.json())
-    .then(({results}) => {
-      setCharacter({ characters: results })
-      // console.log(data)
-    })
+    .then(response => response.json())
+    .then(({results}) => setCharacter(results))
   }, [])
   
-  // const showCharacters = () => characters.results.map(character => {
-    // return <img src={character.image} />
-    //   return <CharacterCard 
-    //     key={ character.id }  
-    //     character={ character }
-    // />
-    
-  //   })
+  const createCard = () => characters.map(character => { 
+    return <CharacterCard character={ character } key={ character.id } />
+  })
 
   return (
     <div>
-      <CharacterCard characters={ characters } key={ characters.id} />
+      <ul>
+        {createCard()}
+      </ul>
     </div>
   )
 }
