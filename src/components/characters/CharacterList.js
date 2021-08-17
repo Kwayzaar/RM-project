@@ -3,7 +3,7 @@ import CharacterCard from './CharacterCard'
 
 function CharacterList({ characters }) {
   const [pageNumber, setPageNumber] = useState(0)
-  const [pageSize, setPageSize] = useState(10)
+  const [pageSize, setPageSize] = useState(6)
   
   
   function paginate(array, page_size, page_number) {
@@ -13,7 +13,8 @@ function CharacterList({ characters }) {
   }
 
   const nextPage = () => {
-    return pageNumber == 1 ?
+    // this ternary prevents the counter from going above 1
+    return pageNumber == 3 ?
       pageNumber :
     setPageNumber(pageNumber + 1)
   }
@@ -25,19 +26,11 @@ function CharacterList({ characters }) {
       setPageNumber(pageNumber - 1)
   }
 
-  // ATTEMPT AT PAGINATION
-  // const createCard = () => characterArray.slice(0,9).map(character => {
-  //   return <CharacterCard character={ character } key={ character.id } />
-  // })
-
-  //ORIGINAL FUNCTION FOR RENDERING CARDS 
-  //This function maps ("breaks open") characters object (state) and passes it down to CharacterCard. Then, for each character in state, it returns CharacterCard with a key prop attached 
   const createCard = () => paginate(characters, pageSize, pageNumber).map(character => { 
     return (
       <CharacterCard character={ character } key={ character.id } />
     )
   })
-
 
 
   return (
