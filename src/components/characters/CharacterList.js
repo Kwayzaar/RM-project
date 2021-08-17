@@ -2,11 +2,27 @@ import React, { useState, useEffect } from 'react'
 import CharacterCard from './CharacterCard'
 
 function CharacterList({ characters }) {
-  const [pageNumber, setPageNumber] = useState(1)
+  const [pageNumber, setPageNumber] = useState(0)
+  const [pageSize, setPageSize] = useState(10)
   
   
   function paginate(array, page_size, page_number) {
-    return characters.slice(page_number * page_size, page_number * page_size + page_size)
+    const arrayStart = page_number * page_size
+    const arrayEnd = page_number * page_size + page_size
+    return characters.slice(arrayStart, arrayEnd)
+  }
+
+  const nextPage = () => {
+    return pageNumber == 1 ?
+      pageNumber :
+    setPageNumber(pageNumber + 1)
+  }
+
+  const prevPage = () => {
+    // this ternary prevents the counter from going below 0
+    return pageNumber == 0 ?
+      pageNumber :
+      setPageNumber(pageNumber - 1)
   }
 
   // ATTEMPT AT PAGINATION
@@ -16,7 +32,7 @@ function CharacterList({ characters }) {
 
   //ORIGINAL FUNCTION FOR RENDERING CARDS 
   //This function maps ("breaks open") characters object (state) and passes it down to CharacterCard. Then, for each character in state, it returns CharacterCard with a key prop attached 
-  const createCard = () => characters.map(character => { 
+  const createCard = () => paginate(characters, pageSize, pageNumber).map(character => { 
     return (
       <CharacterCard character={ character } key={ character.id } />
     )
@@ -29,7 +45,8 @@ function CharacterList({ characters }) {
       <ul className="flex flex-row flex-wrap">
         {createCard()}
       </ul>
-      <button type="button" >next</button> 
+      <button type="button" onClick={prevPage} className="border-2 border-black m-1">prev</button> 
+      <button type="button" onClick={nextPage} className="border-2 border-black m-1">next</button> 
     </div>
   )
 }

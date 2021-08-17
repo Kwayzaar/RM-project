@@ -10,7 +10,7 @@ function App() {
   //addToState drills right down to results array and adds to state 
   const addToState = ({results}) => setCharacter(results)
   //The call to character url only returns first 20 characters 
-  const characterURL = "https://rickandmortyapi.com/api/character/?page=1"
+  const characterURL = "https://rickandmortyapi.com/api/character"
   
   //Use Effect to make the fetch
   useEffect(() => {
