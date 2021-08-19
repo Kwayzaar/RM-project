@@ -35,11 +35,13 @@ function CharacterList({ characters }) {
 
   return (
     <div className="w-full h-1/4 p-1.5 bg-gray-100">
-      <ul className="flex flex-row flex-wrap">
+      <ul className="grid grid-cols-2">
         {createCard()}
       </ul>
-      <button type="button" onClick={prevPage} className="border-2 border-black m-1">prev</button> 
-      <button type="button" onClick={nextPage} className="border-2 border-black m-1">next</button> 
+      <div className="flex flex-row items-center justify-center">
+        <button type="button" onClick={prevPage} className="border-2 border-black m-1">prev</button> 
+        <button type="button" onClick={nextPage} className="border-2 border-black m-1">next</button> 
+      </div>
     </div>
   )
 }
