@@ -20,13 +20,13 @@ function App() {
       return fetch(`${characterURL}?page=${page}`)
         .then(parse)
         .then(newResponse => {
-          // console.log(newResponse.results)
-          const response = previousResponse.push(newResponse.results)
+          console.log(newResponse.results)
+          const response = [...previousResponse, ...newResponse.results]
           
-          if (response.length !== 0) {
+          if (newResponse.info.next === null) {
             page++
             
-            // return paginatedFetch(characterURL, page)
+            return paginatedFetch(characterURL, page, response)
           }
 
           return setCharacters(response)
