@@ -36,7 +36,7 @@ function CharacterList({ characters }) {
   return (
     <div className="w-full h-1/4 p-1.5 bg-gray-100">
       <ul className="grid grid-cols-2">
-        {/* {createCard()} */}
+        {createCard()}
       </ul>
       <div className="flex flex-row items-center justify-center">
         <button type="button" onClick={prevPage} className="border-2 border-black m-1">prev</button> 

@@ -23,9 +23,8 @@ function App() {
           console.log(newResponse.results)
           const response = [...previousResponse, ...newResponse.results]
           
-          if (newResponse.info.next === null) {
-            page++
-            
+          if (newResponse.info.next !== null) {
+            page++            
             return paginatedFetch(characterURL, page, response)
           }
 
