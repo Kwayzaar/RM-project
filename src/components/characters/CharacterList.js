@@ -1,17 +1,15 @@
 import React, { useState } from 'react'
 import CharacterCard from './CharacterCard'
+import LastPage from './LastPage'
 
 function CharacterList({ characters }) {
   const [pageNumber, setPageNumber] = useState(0)
   const [pageSize, setPageSize] = useState(6)
-
-  const [lastPage, setLastPage] = useState([])
   // const [firstPage, setFirstPage] = useState([])
 
   let totalPages = Math.ceil(characters.length / pageSize)
   // console.log(totalPages)
   
-
   function paginate(array, pageSize, pageNumber) {
     const arrayStart = pageNumber * pageSize
     const arrayEnd = pageNumber * pageSize + pageSize
@@ -32,17 +30,6 @@ function CharacterList({ characters }) {
       setPageNumber(pageNumber - 1)
   }
 
-  const goToLastPage = () => {
-    setLastPage(characters.slice(-7, -1))
-    console.log(lastPage)
-    // console.log(pageNumber)
-    // console.log(pageSize)
-    return lastPage.map(character => {
-      return <CharacterCard character={ character } key={ character.id } />
-    })
-  }
-  
-
   const createCard = () => paginate(characters, pageSize, pageNumber).map(character => { 
     return (
       <CharacterCard character={ character } key={ character.id } />
@@ -51,15 +38,19 @@ function CharacterList({ characters }) {
 
   return (
     <div className="w-full h-1/4 p-1.5 bg-gray-100">
-      <ul className="grid grid-cols-2">
-        { lastPage.length === 0 ? 
-          createCard:
-          goToLastPage }
+      <ul className="grid grid-cols-2">      
+        {createCard()}
       </ul>
       <div className="flex flex-row items-center justify-center">
         <button type="button" onClick={prevPage} className="border-2 border-black m-1">prev</button> 
         <button type="button" onClick="">First</button>
-        <button type="button" onClick={goToLastPage}>Last</button>
+        <button 
+          type="button" 
+          onClick={
+            <LastPage 
+              lastPage={ characters.slice(-7,-1) }/>}>
+          Last
+        </button>
         <button type="button" onClick={nextPage} className="border-2 border-black m-1">next</button> 
       </div>
     </div>

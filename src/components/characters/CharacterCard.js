@@ -1,5 +1,5 @@
 
-function characterCard({ character }) {
+function CharacterCard({ character }) {
   return (
   <li className="flex flex-col items-center justify-center m-2">
     <h2 className="text-center">{ character.name }</h2>
@@ -7,4 +7,4 @@ function characterCard({ character }) {
   </li>
   )}
 
-export default characterCard; 
+export default CharacterCard; 
