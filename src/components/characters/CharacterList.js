@@ -6,7 +6,7 @@ function CharacterList({ characters }) {
   const [pageSize, setPageSize] = useState(6)
 
   const [lastPage, setLastPage] = useState([])
-  const [firstPage, setFirstPage] = useState([])
+  // const [firstPage, setFirstPage] = useState([])
 
   let totalPages = Math.ceil(characters.length / pageSize)
   // console.log(totalPages)
@@ -34,11 +34,12 @@ function CharacterList({ characters }) {
 
   const goToLastPage = () => {
     setLastPage(characters.slice(-7, -1))
-    setPageNumber(totalPages)
-    setPageSize(6)
     console.log(lastPage)
-    console.log(pageNumber)
-    console.log(pageSize)
+    // console.log(pageNumber)
+    // console.log(pageSize)
+    return lastPage.map(character => {
+      return <CharacterCard character={ character } key={ character.id } />
+    })
   }
   
 
@@ -52,7 +53,9 @@ function CharacterList({ characters }) {
   return (
     <div className="w-full h-1/4 p-1.5 bg-gray-100">
       <ul className="grid grid-cols-2">
-        {createCard()}
+        { lastPage.length === 0 ? 
+          createCard:
+          goToLastPage }
       </ul>
       <div className="flex flex-row items-center justify-center">
         <button type="button" onClick={prevPage} className="border-2 border-black m-1">prev</button> 
