@@ -56,7 +56,7 @@ function CharacterList({ characters }) {
       <ul className="grid grid-cols-2">      
         { showMainPage ? createCard() : null}
         {showLastPage ? <LastPage lastPage={ characters.slice(-7, -1) } /> : null}
-        {showFirstPage ? <FirstPage firstPage={ characters.slice(0,5)}/> : null}
+        {showFirstPage ? <FirstPage firstPage={ characters.slice(0,6)}/> : null}
       </ul>
       <div className="flex flex-row items-center justify-center">
         <button type="button" onClick={prevPage} className="border-2 border-black m-1">prev</button> 
