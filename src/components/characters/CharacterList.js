@@ -10,12 +10,7 @@ function CharacterList({ characters }) {
   const [showLastPage, setShowLastPage] = useState(false)
   const [showFirstPage, setShowFirstPage] = useState(false)
 
-  // renders first 6 characters as cards on page open 
-  const createCard = () => paginate(characters, pageSize, pageNumber).map(character => { 
-    return (
-      <CharacterCard character={ character } key={ character.id } />
-    )
-  })
+  let totalPages = Math.ceil(characters.length / pageSize)
 
   // allows user to paginate 6 at a time through array of characters
   function paginate(array, pageSize, pageNumber) {
@@ -23,6 +18,18 @@ function CharacterList({ characters }) {
     const arrayEnd = pageNumber * pageSize + pageSize
     return characters.slice(arrayStart, arrayEnd)
   }
+
+  // renders first 6 characters as cards on page open 
+  const createCard = () => paginate(characters, pageSize, pageNumber).map(character => { 
+    return (
+      <CharacterCard character={ character } key={ character.id } />
+    )
+  })
+
+  const createLastSet = () => paginate(characters, pageSize, totalPages).map(character => {
+      return (<CharacterCard character={ character } key={ character.id } />
+      )
+    })
 
   const prevPage = () => {
     // This ternary prevents the decrement counter from going below 0 when paginating backward
@@ -33,7 +40,6 @@ function CharacterList({ characters }) {
 
   const nextPage = () => {
     // this ternary prevents the increment counter from going above 1 when paginating forward
-    let totalPages = Math.ceil(characters.length / pageSize)
     return pageNumber === totalPages ?
       pageNumber :
       setPageNumber(pageNumber + 1)
@@ -43,11 +49,13 @@ function CharacterList({ characters }) {
     setShowMainPage(false)
     setShowFirstPage(true)
     setShowLastPage(false)
+    // setPageNumber(0)
   }
   const onClickLast = () => { 
     setShowMainPage(false)
     setShowFirstPage(false)
     setShowLastPage(true)
+    setPageNumber(totalPages)
   }
 
   return (
@@ -55,7 +63,7 @@ function CharacterList({ characters }) {
       {/* <LastPage lastPage={ characters.slice(-7,-1)}/> */}
       <ul className="grid grid-cols-2">      
         { showMainPage ? createCard() : null}
-        {showLastPage ? <LastPage lastPage={ characters.slice(-7, -1) } /> : null}
+        {showLastPage ? createLastSet() : null }
         {showFirstPage ? <FirstPage firstPage={ characters.slice(0,6)}/> : null}
       </ul>
       <div className="flex flex-row items-center justify-center">

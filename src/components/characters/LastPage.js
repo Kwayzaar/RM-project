@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import CharacterCard from './CharacterCard'
 
-function LastPage ({ lastPage, createCard }) {
+function LastPage ({ lastPage, createCard, paginate, pageSize,pageNumber }) {
 
   const createLastPage = () => {
     // console.log(lastPage)
