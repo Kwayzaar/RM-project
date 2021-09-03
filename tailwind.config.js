@@ -5,7 +5,11 @@ module.exports = {
     container: {
       center: true,
     },
-    extend: {},
+    extend: {
+      backgroundImage: theme => ({
+        'rick-and-morty': "url('./img/RMWallpaper1.jpg')"
+      })
+    }
   },
   variants: {
     extend: {},

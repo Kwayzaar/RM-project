@@ -23,18 +23,22 @@ function CharacterList({ characters }) {
 
     const nextPage = () => {
       // this ternary prevents the increment counter from going above 1 when paginating forward
-      return pageNumber === totalPages - 1 ?
-        pageNumber :
-        setPageNumber(pageNumber + 1)
+      setTimeout(() => {
+        return pageNumber === totalPages - 1 ?
+          pageNumber :
+          setPageNumber(pageNumber + 1)
+        }, 200)
     }
 
     const prevPage = () => {
       // This ternary prevents the decrement counter from going below 0 when paginating backward
-      return pageNumber === 0 ?
+      setTimeout(() => {
+        return pageNumber === 0 ?
         pageNumber :
         setPageNumber(pageNumber - 1)
+      }, 200)
     }
-
+    
     const jumpToLast = () => {
       return pageNumber === totalPages ?
       pageNumber :
@@ -48,11 +52,11 @@ function CharacterList({ characters }) {
     }
 
   return (
-    <div className="w-full h-1/4 p-1.5 bg-gray-100">
-      <ul className="grid grid-cols-2">      
+    <div className="flex-col w-full h-5/6 p-1.5 bg-white">
+      <ul className="grid grid-cols-2 order-1 ">      
         {createCard()}
       </ul>
-      <div className="flex flex-row items-center justify-center m-2">
+      <div className="order-2 flex flex-row items-center justify-center m-2">
         <button type="button" onClick={prevPage} className="border-2 border-black m-1">prev</button> 
         <button type="button" onClick={jumpToFirst}>First</button>
         <button type="button" onClick={jumpToLast}>Last</button>

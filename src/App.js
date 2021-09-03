@@ -2,6 +2,7 @@ import './App.css';
 import React, { useState, useEffect } from 'react';
 import Header from '../src/components/Header'
 import CharacterList from './components/characters/CharacterList'
+import Locations from './components/Locations'
 
 function App() {
   const [characters, setCharacters] = useState([])
@@ -36,9 +37,10 @@ function App() {
   }, [])
 
   return (
-    <div>
+    <div className="bg-rick-and-morty bg-center bg-cover bg-fixed md: pt-24 h-screen">
       <Header />
       <CharacterList characters={ characters } />
+      <Locations />
     </div>
   );
 }
