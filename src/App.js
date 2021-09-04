@@ -38,11 +38,13 @@ function App() {
   }, [])
 
   return (
-    <div className="bg-rick-and-morty bg-center bg-cover bg-fixed md:pt-24 pt-4 h-full flex-col">
-      <Title />
-      <Header />
-      <CharacterList characters={ characters } />
-      <Locations />
+    <div className="h-screen w-screen flex-col">
+      <div className="h-full w-full bg-rick-and-morty sm:bg-rm-landscape bg-center bg-cover bg-fixed 2xl:pt-24 pt-4 ">
+        <Title />
+        <Header />
+        <CharacterList characters={ characters } />
+        <Locations />
+      </div>
     </div>
   );
 }
