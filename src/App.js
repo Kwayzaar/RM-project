@@ -1,6 +1,7 @@
 import './App.css';
 import React, { useState, useEffect } from 'react';
-import Header from '../src/components/Header'
+import Title from './components/Title'
+import Header from './components/Header'
 import CharacterList from './components/characters/CharacterList'
 import Locations from './components/Locations'
 
@@ -37,7 +38,8 @@ function App() {
   }, [])
 
   return (
-    <div className="bg-rick-and-morty bg-center bg-cover bg-fixed md: pt-24 h-screen">
+    <div className="bg-rick-and-morty bg-center bg-cover bg-fixed md:pt-24 pt-4 h-full flex-col">
+      <Title />
       <Header />
       <CharacterList characters={ characters } />
       <Locations />
