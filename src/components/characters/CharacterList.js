@@ -56,7 +56,7 @@ function CharacterList({ characters }) {
       <ul className="grid grid-cols-2 order-1 ">      
         {createCard()}
       </ul>
-      <div className="order-2 flex flex-row items-center justify-center m-2">
+      <div className="order-2 flex flex-row items-center justify-center m-2 space-x-5">
         <button type="button" onClick={prevPage} className="border-2 border-black m-1">prev</button> 
         <button type="button" onClick={jumpToFirst}>First</button>
         <button type="button" onClick={jumpToLast}>Last</button>
