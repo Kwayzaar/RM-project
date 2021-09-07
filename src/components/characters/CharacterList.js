@@ -52,7 +52,7 @@ function CharacterList({ characters }) {
     }
 
   return (
-    <div className="flex-col w-full h-5/6 p-1.5 bg-white">
+    <div className="flex-col w-full min-h-full overflow-hidden p-1.5 bg-white shadow-lg">
       <ul className="grid grid-cols-2 order-1 ">      
         {createCard()}
       </ul>
