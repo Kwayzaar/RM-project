@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { FiChevronLeft, FiChevronRight, FiChevronsLeft, FiChevronsRight } from "react-icons/fi"
 import CharacterCard from './CharacterCard'
 
 function CharacterList({ characters }) {
@@ -57,10 +58,10 @@ function CharacterList({ characters }) {
         {createCard()}
       </ul>
       <div className="order-2 flex flex-row items-center justify-center m-2 space-x-5">
-        <button type="button" onClick={prevPage} className="border-2 border-black m-1">prev</button> 
-        <button type="button" onClick={jumpToFirst}>First</button>
-        <button type="button" onClick={jumpToLast}>Last</button>
-        <button type="button" onClick={nextPage} className="border-2 border-black m-1">next</button> 
+        <button type="button"  onClick={jumpToFirst}><FiChevronsLeft /></button>
+        <button type="button" onClick={prevPage} className="border-2 border-black m-1"><FiChevronLeft /></button> 
+        <button type="button" onClick={nextPage} className="border-2 border-black m-1"><FiChevronRight /></button> 
+        <button type="button" onClick={jumpToLast}><FiChevronsRight /></button>
       </div>
     </div>
   )
