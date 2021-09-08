@@ -1,4 +1,5 @@
 import './App.css';
+import './index.css'
 import React, { useState, useEffect } from 'react';
 import Title from './components/Title'
 import Header from './components/Header'

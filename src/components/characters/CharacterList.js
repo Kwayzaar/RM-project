@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { IconContext } from 'react-icons'
 import { FiChevronLeft, FiChevronRight, FiChevronsLeft, FiChevronsRight } from "react-icons/fi"
 import CharacterCard from './CharacterCard'
 
@@ -54,15 +55,17 @@ function CharacterList({ characters }) {
 
   return (
     <div className="flex-col w-full min-h-full overflow-hidden p-1.5 bg-white shadow-lg">
-      <ul className="grid grid-cols-2 order-1 ">      
+      <ul className="grid grid-cols-2 order-1 sm:grid-cols-3 sm:px-20">      
         {createCard()}
       </ul>
-      <div className="order-2 flex flex-row items-center justify-center m-2 space-x-5">
-        <button type="button"  onClick={jumpToFirst}><FiChevronsLeft /></button>
-        <button type="button" onClick={prevPage} className="border-2 border-black m-1"><FiChevronLeft /></button> 
-        <button type="button" onClick={nextPage} className="border-2 border-black m-1"><FiChevronRight /></button> 
-        <button type="button" onClick={jumpToLast}><FiChevronsRight /></button>
-      </div>
+      <IconContext.Provider value={{ size: "2em", verticalAlign: 'middle' }} >
+        <div className="order-2 flex flex-row items-center justify-center m-2 space-x-5">
+          <button type="button" className="h-10 w-10" onClick={jumpToFirst}><FiChevronsLeft /></button>
+          <button type="button" onClick={prevPage} className="border-2 border-black m-1"><FiChevronLeft /></button> 
+          <button type="button" onClick={nextPage} className="border-2 border-black m-1"><FiChevronRight /></button> 
+          <button type="button" onClick={jumpToLast}><FiChevronsRight /></button>
+        </div>
+      </IconContext.Provider>
     </div>
   )
 }
