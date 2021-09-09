@@ -6,8 +6,6 @@ function CharacterList({ characters }) {
   const [pageNumber, setPageNumber] = useState(0)
   const [pageSize, setPageSize] = useState(6)
 
-  let totalPages = Math.ceil(characters.length / pageSize)
-
   // allows user to paginate 6 at a time through array of characters
   function paginate(array, pageSize, pageNumber) {
     const arrayStart = pageNumber * pageSize
@@ -23,11 +21,18 @@ function CharacterList({ characters }) {
   })
 
   return (
-    <div className="flex-col w-full min-h-full overflow-hidden p-1.5 bg-white shadow-lg">
-      <ul className="grid grid-cols-2 order-1 sm:grid-cols-3 sm:px-20">      
-        {createCard()}
-      </ul>
-      <Buttons pageNumber={pageNumber} setPageNumber={setPageNumber} pageSize={pageSize} totalPages={totalPages} />
+    <div className="flex-col w-full min-h-full overflow-hidden p-1.5 bg-gray-400 transform -rotate-12 shadow-lg">
+      <div className="background-none transform rotate-12">
+        <ul className="grid grid-cols-2 order-1 sm:grid-cols-3 sm:px-20">      
+          {createCard()}
+        </ul>
+        <Buttons 
+          characters={ characters }
+          pageNumber={ pageNumber}  
+          setPageNumber={ setPageNumber } 
+          pageSize={ pageSize }
+        />
+      </div>
     </div>
   )
 }

@@ -51,6 +51,6 @@ table {
 .cl-icons {
   height: 20px;
   width: 20px;
-  
+  border-radius: 0.375rem;
 }
 

@@ -2,7 +2,9 @@ import React from 'react'
 import { IconContext } from 'react-icons'
 import { FiChevronLeft, FiChevronRight, FiChevronsLeft, FiChevronsRight } from "react-icons/fi"
 
-function Buttons({ pageNumber, setPageNumber, pageSize, totalPages }) {
+function Buttons({ characters, pageNumber, setPageNumber, pageSize }) {
+
+  let totalPages = Math.ceil(characters.length / pageSize)
 
   const nextPage = () => {
     // this ternary prevents the increment counter from going above 1 when paginating forward
@@ -35,12 +37,13 @@ function Buttons({ pageNumber, setPageNumber, pageSize, totalPages }) {
   }
 
   return (
+    // IconContext styling in app.css
     <IconContext.Provider value={{ className: "cl-icons" }} >
-      <div className="order-2 flex flex-row items-center justify-center m-1 space-x-4">
-          <button type="button" className="" onClick={jumpToFirst}><FiChevronsLeft /></button>
-          <button type="button" onClick={prevPage} className="border-2 border-black"><FiChevronLeft /></button> 
-          <button type="button" onClick={nextPage} className="border-2 border-black"><FiChevronRight /></button> 
-          <button type="button" onClick={jumpToLast}><FiChevronsRight /></button>
+      <div className="order-2 flex flex-row items-center justify-center m-1 mt- space-x-4">
+          <button type="button" className="border rounded-md shadow bg-blue-500 hover:bg-blue-400 active:bg-blue-400 text-white p-1" onClick={jumpToFirst}><FiChevronsLeft /></button>
+          <button type="button" className="border rounded-md shadow bg-blue-500 hover:bg-blue-400 active:bg-blue-400 text-white p-1" onClick={prevPage} ><FiChevronLeft /></button> 
+          <button type="button" className="border rounded-md shadow bg-blue-500 hover:bg-blue-400 active:bg-blue-400 text-white p-1" onClick={nextPage} ><FiChevronRight /></button> 
+          <button type="button" className="border rounded-md shadow bg-blue-500 hover:bg-blue-400 active:bg-blue-400 text-white p-1" onClick={jumpToLast}><FiChevronsRight /></button>
         </div>
     </IconContext.Provider>
   )
