@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
-import { IconContext } from 'react-icons'
-import { FiChevronLeft, FiChevronRight, FiChevronsLeft, FiChevronsRight } from "react-icons/fi"
 import CharacterCard from './CharacterCard'
+import Buttons from './Buttons'
 
 function CharacterList({ characters }) {
   const [pageNumber, setPageNumber] = useState(0)
@@ -23,49 +22,12 @@ function CharacterList({ characters }) {
     )
   })
 
-    const nextPage = () => {
-      // this ternary prevents the increment counter from going above 1 when paginating forward
-      setTimeout(() => {
-        return pageNumber === totalPages - 1 ?
-          pageNumber :
-          setPageNumber(pageNumber + 1)
-        }, 200)
-    }
-
-    const prevPage = () => {
-      // This ternary prevents the decrement counter from going below 0 when paginating backward
-      setTimeout(() => {
-        return pageNumber === 0 ?
-        pageNumber :
-        setPageNumber(pageNumber - 1)
-      }, 200)
-    }
-    
-    const jumpToLast = () => {
-      return pageNumber === totalPages ?
-      pageNumber :
-      setPageNumber(totalPages - 1) 
-    }
-
-    const jumpToFirst = () => {
-      return pageNumber === 0 ?
-      pageNumber :
-      setPageNumber(0)
-    }
-
   return (
     <div className="flex-col w-full min-h-full overflow-hidden p-1.5 bg-white shadow-lg">
       <ul className="grid grid-cols-2 order-1 sm:grid-cols-3 sm:px-20">      
         {createCard()}
       </ul>
-      <IconContext.Provider value={{ size: "2em", verticalAlign: 'middle' }} >
-        <div className="order-2 flex flex-row items-center justify-center m-2 space-x-5">
-          <button type="button" className="h-10 w-10" onClick={jumpToFirst}><FiChevronsLeft /></button>
-          <button type="button" onClick={prevPage} className="border-2 border-black m-1"><FiChevronLeft /></button> 
-          <button type="button" onClick={nextPage} className="border-2 border-black m-1"><FiChevronRight /></button> 
-          <button type="button" onClick={jumpToLast}><FiChevronsRight /></button>
-        </div>
-      </IconContext.Provider>
+      <Buttons pageNumber={pageNumber} setPageNumber={setPageNumber} pageSize={pageSize} totalPages={totalPages} />
     </div>
   )
 }

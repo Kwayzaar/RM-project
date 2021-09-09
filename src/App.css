@@ -48,5 +48,9 @@ table {
   box-sizing: border-box;
 }
 
-
+.cl-icons {
+  height: 20px;
+  width: 20px;
+  
+}
 
