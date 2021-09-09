@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 import Title from './components/Title'
 import Header from './components/Header'
 import CharacterList from './components/characters/CharacterList'
-import Locations from './components/Locations'
+import LocationList from './Locations/LocationList'
 
 function App() {
   const [characters, setCharacters] = useState([])
@@ -39,11 +39,11 @@ function App() {
 
   return (
     <div className="h-screen w-screen flex-col">
-      <div className="h-full w-full bg-rick-and-morty sm:bg-rm-landscape bg-center bg-cover bg-fixed 2xl:pt-24 pt-4 ">
+      <div className="h-full w-full bg-rm-landscape bg-center bg-cover bg-fixed 2xl:pt-24 pt-4 ">
         <Title />
         <Header />
         <CharacterList characters={ characters } />
-        <Locations />
+        <LocationList />
       </div>
     </div>
   );
