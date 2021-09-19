@@ -1,10 +1,17 @@
 import React, { useState } from 'react'
 
 function NavBar() {
-  const [navBarOpen, setNavBarOpen] = useState(false)
+  const [navbarOpen, setNavbarOpen] = useState(false)
+
+  const handleToggle = () => {
+    setNavbarOpen(!navbarOpen)
+  }
 
   return (
-    <div></div>
+    <nav className="" alt="navBar">
+      <button onClick={handleToggle}>{navbarOpen ? "Close" : "Open"}</button>
+      <ul className={`menuNav ${navbarOpen ? "showMenu" : ""}`}></ul>
+    </nav>
   )
 }
 
