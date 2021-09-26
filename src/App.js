@@ -18,7 +18,7 @@ function App() {
       return fetch(`${characterURL}?page=${page}`)
         .then(parse)
         .then(newResponse => {
-          console.log(newResponse)
+          // console.log(newResponse)
           const response = [...previousResponse, ...newResponse.results]
           
           if (newResponse.info.next !== `${characterURL}?page=4`) {
@@ -42,7 +42,7 @@ function App() {
         <Title />
         <Header />
         <CharacterList characters={ characters } />
-        <LocationList />
+        <LocationList characters={ characters }/>
       </div>
     </div>
   );
