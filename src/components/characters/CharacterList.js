@@ -21,7 +21,7 @@ function CharacterList({ characters }) {
   })
 
   return (
-    <div className="flex-col min-w-full min-h-full overflow-hidden p-1.5 mb-10 bg-blue-100 shadow-lg overflow-hidden">
+    <div className="flex-col min-w-full min-h-full overflow-hidden p-1.5 mb-10 bg-white shadow-lg overflow-hidden">
       <div className="background-none">
         <ul className="grid grid-cols-2 order-1 sm:grid-cols-3 sm:px-28 md:px-44 lg:px-60 xl:px-96">      
           {createCard()}

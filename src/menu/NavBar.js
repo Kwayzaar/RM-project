@@ -4,7 +4,7 @@ function NavBar() {
   const [navbarOpen, setNavbarOpen] = useState(false)
 
   //styles
-  const navbarButton = "flex flex-col h-12 w-12 border-2 border-black justify-center items-center group cursor-pointer" 
+  const navbarButton = "flex flex-col h-10 w-10 border-2 border-white justify-center items-center group cursor-pointer" 
 
   const navLine = "h-1 w-6 my-1 bg-black rounded-full transition ease transform duration-300"
 
