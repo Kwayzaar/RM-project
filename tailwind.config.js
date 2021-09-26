@@ -14,8 +14,8 @@ module.exports = {
     },
     extend: {
       backgroundImage: theme => ({
-        'rick-and-morty': "url('./img/RMWallpaper1.jpg')",
-        'rm-landscape': "url('./img/RM-wallpaper-landscape.jpg')"
+        'rm-background': "url('./img/RM-background.jpg')",
+        // 'rm-landscape': "url('./img/RM-wallpaper-landscape.jpg')"
       }),
     }
   },
