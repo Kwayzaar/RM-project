@@ -1,13 +1,14 @@
 import react, { useState, useEffect } from 'react'
 
 function LocationList({ characters }) {
-  const parse = response => response.json()
+  const [location, setLocation] = useState([])
 
   function showLocations(characters) {
-    for(let i = 0; i < characters.length; i++) {
-      console.log(characters[i].location)
-      }
+    for(let i = 0; i < characters.length; i++){
+      location.push(characters[i].location)
     }
+    console.log(location)
+  }
 
   showLocations(characters)
 
