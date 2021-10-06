@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 import Title from './components/Title'
 import Header from './components/Header'
 import CharacterList from './components/characters/CharacterList'
-import LocationList from './locations/LocationList'
+import LocationContainer from './locations/LocationContainer'
 
 function App() {
   const [characters, setCharacters] = useState([])
@@ -42,7 +42,7 @@ function App() {
         <Title />
         <Header />
         <CharacterList characters={ characters } />
-        <LocationList characters={ characters }/>
+        <LocationContainer characters={ characters }/>
       </div>
     </div>
   );
