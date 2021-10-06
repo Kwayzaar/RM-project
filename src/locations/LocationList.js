@@ -1,26 +1,27 @@
-import react, { useState, useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 
 function LocationList({ characters }) {
-  const [location, setLocation] = useState([])
+  const [locations, setLocations] = useState([])
 
-  function showLocations(characters) {
+  function getLocations(characters) {
+    
+    let locationArr = []
     for(let i = 0; i < characters.length; i++){
-      location.push(characters[i].location)
+      locationArr.push(characters[i].location)
     }
-    console.log(location)
+
+    // filter the location array to remove duplicates 
+    let filteredArr = locationArr.filter((locationArr, index, self) => index === self.findIndex((t) => (t.name === locationArr.name)))
+
+  // return setLocations(filteredArr)
   }
 
-    // function removeDuplicates(arr) {
-      let filteredArr = locationArr.filter((locationArr, index, self) => index === self.findIndex((t) => (t.name === locationArr.name)))
-    // }
-    console.log(filteredArr)
-    // console.log(filteredArr)
-    // return locationArr
-    }
+  useEffect(() => {
+    getLocations(characters)
+  })
 
-    showLocations(characters)
-    
-    
+  console.log(locations)
+
   return (
     <div className="flex-col min-w-screen min-h-full p-1.5 mt-10 bg-blue-100 shadow-lg overflow-hidden">
       <ul>
