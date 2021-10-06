@@ -2,7 +2,7 @@ import './App.css';
 import React, { useState, useEffect } from 'react';
 import Title from './components/Title'
 import Header from './components/Header'
-import CharacterList from './components/characters/CharacterList'
+import CharacterContainer from './components/characters/CharacterContainer'
 import LocationContainer from './locations/LocationContainer'
 
 function App() {
@@ -41,7 +41,7 @@ function App() {
       <div className="bg-rm-background bg-center bg-cover bg-fixed 2xl:pt-24 pt-4">
         <Title />
         <Header />
-        <CharacterList characters={ characters } />
+        <CharacterContainer characters={ characters } />
         <LocationContainer characters={ characters }/>
       </div>
     </div>

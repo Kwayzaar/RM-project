@@ -1,15 +1,15 @@
-import React, { useState, useEffect } from 'react'
-import LocationList from './LocationList'
+import React, { useState, useEffect, useRef } from 'react'
+import LocationButtons from './LocationButtons'
 
 function LocationContainer({ characters }) {
   const [locations, setLocations] = useState([])
   const [locationId, setLocationId] = useState(0)
 
-  function getLocations(characters) {
+  function getLocations(arr) {
 
     let locationArr = []
-    for(let i = 0; i < characters.length; i++){
-      locationArr.push(characters[i].location)
+    for(let i = 0; i < arr.length; i++){
+      locationArr.push(arr[i].location)
     }
 
     // filter the location array to remove duplicates 
@@ -20,14 +20,16 @@ function LocationContainer({ characters }) {
 
   useEffect(() => {
     getLocations(characters)
-  }, [locationId])
+  }, [])
   
-  console.log(locations)
+  const createLocationButtons = () => locations.map(location => {
+    return <LocationButtons location={ location.name } />
+  })
 
   return (
     <div className="flex-col min-w-screen min-h-full p-1.5 mt-10 bg-blue-100 shadow-lg overflow-hidden">
       <ul>
-      {/* <LocationList locations={ locations } /> */}
+      {createLocationButtons()}
       </ul>
     </div>
   )

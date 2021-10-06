@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import CharacterCard from './CharacterCard'
 import Buttons from './Buttons'
 
-function CharacterList({ characters }) {
+function CharacterContainer({ characters }) {
   const [pageNumber, setPageNumber] = useState(0)
   const [pageSize, setPageSize] = useState(6)
 
@@ -37,4 +37,4 @@ function CharacterList({ characters }) {
   )
 }
 
-export default CharacterList;
+export default CharacterContainer;
