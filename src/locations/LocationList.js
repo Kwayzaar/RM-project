@@ -1,15 +1,14 @@
 import react, { useState, useEffect } from 'react'
 
 function LocationList({ characters }) {
-  const [location, setLocation] =  useState([])
-
-  const parse = response => response.json()
+  const [location, setLocation] = useState([])
 
   function showLocations(characters) {
-    let locationArr = []
-    for(let i = 0; i < characters.length; i++) {
-      locationArr.push(characters[i].location)
+    for(let i = 0; i < characters.length; i++){
+      location.push(characters[i].location)
     }
+    console.log(location)
+  }
 
     // function removeDuplicates(arr) {
       let filteredArr = locationArr.filter((locationArr, index, self) => index === self.findIndex((t) => (t.name === locationArr.name)))
