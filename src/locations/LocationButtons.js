@@ -1,15 +1,13 @@
 import React, {useState} from 'react'
 
-function LocationButtons({ locations }) {
+function LocationButtons({ location }) {
 
   return (
-    <ul>
       <li>
-        <button>
-          
+        <button type="button" className="text-white bg-black">
+          {location.name}
         </button>
       </li>
-    </ul>
   )
 }
 
