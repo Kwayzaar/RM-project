@@ -4,6 +4,11 @@ function LocationButtons({ locations }) {
 
   return (
     <ul>
+      <li>
+        <button>
+          
+        </button>
+      </li>
     </ul>
   )
 }

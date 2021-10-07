@@ -5,8 +5,10 @@ function LocationContainer({ characters }) {
   const [locations, setLocations] = useState([])
   const [locationId, setLocationId] = useState(0)
 
-  function getLocations(arr) {
+  useEffect(() => getLocations(characters), [])
 
+// This function gets locations based on the characters fetched and pushes into new array. Also removes location duplicates 
+function getLocations(arr) {
     let locationArr = []
     for(let i = 0; i < arr.length; i++){
       locationArr.push(arr[i].location)
@@ -18,12 +20,10 @@ function LocationContainer({ characters }) {
     return setLocations(filteredArr)
   }
 
-  useEffect(() => {
-    getLocations(characters)
-  }, [])
   
+
   const createLocationButtons = () => locations.map(location => {
-    return <LocationButtons location={ location.name } />
+    return <LocationButtons location={ location.name } key={ location.id }/>
   })
 
   return (

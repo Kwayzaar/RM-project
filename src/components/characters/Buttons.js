@@ -40,10 +40,10 @@ function Buttons({ characters, pageNumber, setPageNumber, pageSize }) {
     // IconContext styling in app.css
     <IconContext.Provider value={{ className: "cl-icons" }} >
       <div className="order-2 flex flex-row items-center justify-center m-1 mt- space-x-4">
-          <button type="button" className="border rounded-md shadow bg-blue-500 hover:bg-blue-400 active:bg-blue-400 text-white p-1" onClick={jumpToFirst}><FiChevronsLeft /></button>
-          <button type="button" className="border rounded-md shadow bg-blue-500 hover:bg-blue-400 active:bg-blue-400 text-white p-1" onClick={prevPage} ><FiChevronLeft /></button> 
-          <button type="button" className="border rounded-md shadow bg-blue-500 hover:bg-blue-400 active:bg-blue-400 text-white p-1" onClick={nextPage} ><FiChevronRight /></button> 
-          <button type="button" className="border rounded-md shadow bg-blue-500 hover:bg-blue-400 active:bg-blue-400 text-white p-1" onClick={jumpToLast}><FiChevronsRight /></button>
+          <button type="button" className="border rounded-md shadow bg-black hover:bg-gray-900 active:bg-gray-900 text-white p-1" onClick={jumpToFirst}><FiChevronsLeft /></button>
+          <button type="button" className="border rounded-md shadow bg-black hover:bg-gray-900 active:bg-gray-900 text-white p-1" onClick={prevPage} ><FiChevronLeft /></button> 
+          <button type="button" className="border rounded-md shadow bg-black hover:bg-gray-900 active:bg-gray-900 text-white p-1" onClick={nextPage} ><FiChevronRight /></button> 
+          <button type="button" className="border rounded-md shadow bg-black hover:bg-gray-900 active:bg-gray-900 text-white p-1" onClick={jumpToLast}><FiChevronsRight /></button>
         </div>
     </IconContext.Provider>
   )
