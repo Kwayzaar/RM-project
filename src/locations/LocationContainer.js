@@ -2,23 +2,31 @@ import React, { useState, useEffect, useRef } from 'react'
 import LocationButtons from './LocationButtons'
 
 function LocationContainer({ characters }) {
-  const [locations, setLocations] = useState([])
+  const [locations, setLocations] = useState(characters)
   const [locationId, setLocationId] = useState(0)
 
-// This function gets locations based on the characters fetched and pushes into new array. Also removes location duplicates 
-function getLocations(arr) {
-    let locationArr = []
-    for(let i = 0; i < arr.length; i++){
-      locationArr.push(arr[i].location)
-    }
-
-    // filter the location array to remove duplicates 
-    const filteredArr = locationArr.filter((locationArr, index, self) => index === self.findIndex((t) => (t.name === locationArr.name)))
-
-    return setLocations(filteredArr)
-  }
+  useEffect(() => {
+    setLocations(characters)
+    // filterArr(locations)
+  }, [characters])
   
-  useEffect(() => getLocations(characters), [])
+  // filter the location array to remove duplicates 
+  function filterArr(arr) {
+    locationArr = arr.filter((arr, index, self) => index === self.findIndex((t) => (t.name === arr.name)))
+    return arr
+  }
+
+  // setLocations(characters)
+// This function gets locations based on the characters fetched and pushes into new array. Also removes location duplicates 
+  // function getLocations(arr) {
+  //     let locationArr = []
+  //     for(let i = 0; i < arr.length; i++){
+  //       locationArr.push(arr[i].location)
+  //     }
+  //     return setLocations(locationArr)
+  // }
+
+
 
   const createLocationButtons = () => locations.map(location => {
     return <LocationButtons location={ location.name } key={ location.id }/>
