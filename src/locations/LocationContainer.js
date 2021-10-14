@@ -3,22 +3,21 @@ import LocationButtons from './LocationButtons'
 
 function LocationContainer({ locations }) {
   const [filteredArr, setFilteredArr] = useState([])
+  
+  // This function gets locations based on the characters fetched and pushes into new array. Also removes location duplicates 
+  const filterArr = (arr) => {
+    let localArr = arr
+    localArr = localArr.filter((arr, index, self) => index === self.findIndex((t) => (t.name === arr.name)))
+    
+    return setFilteredArr(localArr)
+  } 
 
   useEffect(() => {
     filterArr(locations)
-  }, [])
-
-  // This function gets locations based on the characters fetched and pushes into new array. Also removes location duplicates 
-      // filter the location array to remove duplicates 
-    const filterArr = (arr) => {
-      let localArr = arr
-      localArr = localArr.filter((arr, index, self) => index === self.findIndex((t) => (t.name === arr.name)))
-      
-      return setFilteredArr(localArr)
-    } 
+  }, [locations])
   
   const createLocationButtons = () => filteredArr.map((location, index) => {
-    return <LocationButtons location={ location.name } key={ index }/>
+    return <LocationButtons location={ location.name } url={ location.url } key={ index }/>
   })
 
   return (
