@@ -4,7 +4,7 @@ function LocationButtons({ location }) {
 
   return (
       <li className="flex flex-col items-center m-2">
-        {location.name}
+        <button>{location.name}</button>
       </li>
   )
 }

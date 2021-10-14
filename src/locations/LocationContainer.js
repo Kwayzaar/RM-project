@@ -17,14 +17,21 @@ function LocationContainer({ locations }) {
   }, [locations])
   
   const createLocationButtons = () => filteredArr.map((location, index) => {
-    return <LocationButtons location={ location.name } url={ location.url } key={ index }/>
+    console.log(location.name)
+    return (
+      <LocationButtons location={ location } url={ location.url } key={ index }/>
+    )
   })
 
+
+
   return (
-    <div className="flex-col min-w-screen min-h-full p-1.5 mt-10 bg-white shadow-lg overflow-hidden">
-      <ul className="grid grid-cols-2 order-1 sm:grid-cols-3 sm:px-28 md:px-44 lg:px-60 xl:px-96">
-      {createLocationButtons()}
-      </ul>
+    <div className="flex-col min-w-full min-h-full overflow-hidden p-1.5 mb-10 bg-white shadow-lg overflow-hidden">
+      <div className="background-none">
+        <ul className="grid grid-cols-2 order-1 sm:grid-cols-3 sm:px-28 md:px-44 lg:px-60 xl:px-96">
+        {createLocationButtons()}
+        </ul>
+      </div>
     </div>
   )
 }
