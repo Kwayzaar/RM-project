@@ -3,10 +3,8 @@ import React, {useState} from 'react'
 function LocationButtons({ location }) {
 
   return (
-      <li>
-        <button type="button" className="text-white bg-black">
-          {location.name}
-        </button>
+      <li className="flex flex-col items-center m-2">
+        {location.name}
       </li>
   )
 }

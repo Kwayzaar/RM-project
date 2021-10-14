@@ -7,9 +7,12 @@ import LocationContainer from './locations/LocationContainer'
 
 function App() {
   const [characters, setCharacters] = useState([])
+  const [locations, setLocations] = useState([])
   
   const parse = response => response.json()
   
+
+  // fetches first 60 characters from API 
   function paginatedFetch(
     characterURL = `https://rickandmortyapi.com/api/character/`,
     page = 1,
@@ -31,10 +34,24 @@ function App() {
         })
       }
 
+  // pulls location data out of character fetch 
+  function getLocations(arr) {
+    let locationArr = []
+    for(let i = 0; i < arr.length; i++){
+      locationArr.push(arr[i].location)
+    }
+    return setLocations(locationArr)
+  }
+
   //Use Effect to make the fetch
   useEffect(() => {
     paginatedFetch()
   }, [])
+  
+  // use effect to make getLocations run only when character state is updated 
+  useEffect(() => {
+    getLocations(characters)    
+  }, [characters])
 
   return (
     <div className="h-screen w-screen flex-col">
@@ -42,7 +59,7 @@ function App() {
         <Title />
         <Header />
         <CharacterContainer characters={ characters } />
-        <LocationContainer characters={ characters }/>
+        <LocationContainer locations={ locations }/>
       </div>
     </div>
   );

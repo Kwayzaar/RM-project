@@ -6,13 +6,6 @@ function CharacterContainer({ characters }) {
   const [pageNumber, setPageNumber] = useState(0)
   const [pageSize, setPageSize] = useState(6)
 
-  // allows user to paginate 6 at a time through array of characters
-  function paginate(array, pageSize, pageNumber) {
-    const arrayStart = pageNumber * pageSize
-    const arrayEnd = pageNumber * pageSize + pageSize
-    return characters.slice(arrayStart, arrayEnd)
-  }
-
   // renders 6 characters as cards, at page open first 6 characters
   const createCard = () => paginate(characters, pageSize, pageNumber).map(character => { 
     return (
@@ -20,6 +13,13 @@ function CharacterContainer({ characters }) {
     )
   })
 
+  // allows user to paginate 6 at a time through array of characters
+  function paginate(array, pageSize, pageNumber) {
+    const arrayStart = pageNumber * pageSize
+    const arrayEnd = pageNumber * pageSize + pageSize
+    return characters.slice(arrayStart, arrayEnd)
+  }
+  
   return (
     <div className="flex-col min-w-full min-h-full overflow-hidden p-1.5 mb-10 bg-white shadow-lg overflow-hidden">
       <div className="background-none">
