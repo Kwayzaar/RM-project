@@ -16,11 +16,18 @@ module.exports = {
     container: {
       center: true,
     },
+    // add new colors here to augment default palette
     extend: {
       backgroundImage: theme => ({
         'rm-background': "url('./img/RM-background.jpg')",
-        // 'rm-landscape': "url('./img/RM-wallpaper-landscape.jpg')"
       }),
+      textColor: theme => theme('colors'),
+      textColor: {
+      'rm-green': '#09F413'
+    },
+    minHeight: {
+      '50': '50%'
+    }
     }
   },
   variants: {
