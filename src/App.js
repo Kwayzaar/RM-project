@@ -54,7 +54,7 @@ function App() {
   }, [characters])
 
   return (
-    <div className="h-screen w-screen flex-col">
+    <div className="h-screen w-screen flex-col text-red-hat">
       <div className="bg-rm-background bg-center bg-cover bg-fixed 2xl:pt-24 pt-4">
         <Title />
         <Header />

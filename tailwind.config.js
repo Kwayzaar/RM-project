@@ -16,6 +16,9 @@ module.exports = {
     container: {
       center: true,
     },
+    fontFamily: {
+      'red-hat': ['Red Hat Display', 'ui-sans-serif;']
+    },
     // add new colors here to augment default palette
     extend: {
       backgroundImage: theme => ({
@@ -25,9 +28,6 @@ module.exports = {
       textColor: {
       'rm-green': '#09F413'
     },
-    minHeight: {
-      '50': '50%'
-    }
     }
   },
   variants: {
