@@ -1,14 +1,14 @@
 {
   "files": {
-    "main.css": "/RM-project/static/css/main.0c3cc7ef.chunk.css",
-    "main.js": "/RM-project/static/js/main.52da21ed.chunk.js",
-    "main.js.map": "/RM-project/static/js/main.52da21ed.chunk.js.map",
+    "main.css": "/RM-project/static/css/main.c39a2376.chunk.css",
+    "main.js": "/RM-project/static/js/main.a6d6dc0c.chunk.js",
+    "main.js.map": "/RM-project/static/js/main.a6d6dc0c.chunk.js.map",
     "runtime-main.js": "/RM-project/static/js/runtime-main.8401929f.js",
     "runtime-main.js.map": "/RM-project/static/js/runtime-main.8401929f.js.map",
     "static/js/2.686efc7b.chunk.js": "/RM-project/static/js/2.686efc7b.chunk.js",
     "static/js/2.686efc7b.chunk.js.map": "/RM-project/static/js/2.686efc7b.chunk.js.map",
     "index.html": "/RM-project/index.html",
-    "static/css/main.0c3cc7ef.chunk.css.map": "/RM-project/static/css/main.0c3cc7ef.chunk.css.map",
+    "static/css/main.c39a2376.chunk.css.map": "/RM-project/static/css/main.c39a2376.chunk.css.map",
     "static/js/2.686efc7b.chunk.js.LICENSE.txt": "/RM-project/static/js/2.686efc7b.chunk.js.LICENSE.txt",
     "static/media/index.css": "/RM-project/static/media/RM-background.8a114275.jpg",
     "static/media/RM-logo.93c0c4c5.png": "/RM-project/static/media/RM-logo.93c0c4c5.png"
@@ -16,7 +16,7 @@
   "entrypoints": [
     "static/js/runtime-main.8401929f.js",
     "static/js/2.686efc7b.chunk.js",
-    "static/css/main.0c3cc7ef.chunk.css",
-    "static/js/main.52da21ed.chunk.js"
+    "static/css/main.c39a2376.chunk.css",
+    "static/js/main.a6d6dc0c.chunk.js"
   ]
 }
