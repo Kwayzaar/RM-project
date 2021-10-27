@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 import Title from './components/Title'
 import Header from './components/Header'
 import CharacterContainer from './components/characters/CharacterContainer'
-import LocationContainer from './locations/LocationContainer'
+import LocationContainer from './components/locations/LocationContainer'
 
 function App() {
   const [characters, setCharacters] = useState([])

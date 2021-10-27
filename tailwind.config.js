@@ -16,9 +16,6 @@ module.exports = {
     container: {
       center: true,
     },
-    fontFamily: {
-      'red-hat': ['Red Hat Display', 'ui-sans-serif;']
-    },
     // add new colors here to augment default palette
     extend: {
       backgroundImage: theme => ({

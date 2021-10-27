@@ -30,7 +30,7 @@ function LocationContainer({ locations }) {
     <div>
       <h1>Locations</h1>
     </div>
-      <div className="background-none">
+      <div className="background-none m-1">
         <ul className="grid grid-cols-2 order-1 justify-items-stretch items-center align-items-center sm:grid-cols-3 sm:px-28 md:px-44 lg:px-60 xl:px-96">
         {createLocationButtons()}
         </ul>
