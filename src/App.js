@@ -55,12 +55,14 @@ function App() {
 
   return (
     <div className="h-screen w-screen flex-col text-red-hat">
-      <div className="bg-rm-background bg-center bg-cover bg-fixed 2xl:pt-24 pt-4">
-        <Title />
-        <Header />
-        <CharacterContainer characters={ characters } />
-        <LocationContainer locations={ locations }/>
-      </div>
+      <main>
+        <div className="bg-rm-background bg-center bg-cover bg-fixed 2xl:pt-24 pt-4">
+          <Title />
+          <Header />
+          <CharacterContainer characters={ characters } />
+          <LocationContainer locations={ locations }/>
+        </div>
+      </main>
     </div>
   );
 }

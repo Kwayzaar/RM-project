@@ -1,16 +1,14 @@
 import React from 'react'
 
-function CharacterPopup() {
-  reutrn (
-    <div className="flex flex-col">
+function CharacterPopup(props) {
+  return (props.trigger) ? (
+    <div className="">
       <div>
-        <button>Back</button>
-      </div>
-      <div>
-
+        <button onClick={() => props.setTrigger(false)}>Back</button>
+        { props.children }
       </div>
     </div>
-  )
+  ) : ""
 }
 
 export default CharacterPopup;

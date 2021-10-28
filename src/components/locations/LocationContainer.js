@@ -17,7 +17,7 @@ function LocationContainer({ locations }) {
   }, [locations])
   
   const createLocationButtons = () => filteredArr.map((location, index) => {
-    console.log(location.name)
+    // console.log(location.name)
     return (
       <LocationButtons location={ location } url={ location.url } key={ index }/>
     )
