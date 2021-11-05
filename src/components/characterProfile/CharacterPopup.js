@@ -1,14 +1,12 @@
 import React from 'react'
 
 function CharacterPopup(props) {
-  return (props.trigger) ? (
-    <div className="">
-      <div>
-        <button onClick={() => props.setTrigger(false)}>Back</button>
-        { props.children }
-      </div>
-    </div>
-  ) : ""
-}
+  return (
+<div class="">
+  <h2>
+    Hello
+  </h2>
+</div>
+  )}
 
 export default CharacterPopup;
